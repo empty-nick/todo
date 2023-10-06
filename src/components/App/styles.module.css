@@ -1,6 +1,25 @@
 .global{
   box-sizing: border-box;
-
+  display: grid;
+  grid-template-areas:
+      'header'
+      'content'
+      'footer';
+  grid-template-rows: 2fr 10fr 2fr;
+  gap: 1em;
+  margin: 0;
   width: 100vw;
   height: 100vh;
+}
+
+.footer{
+  grid-area: header;
+}
+
+.content{
+  grid-area: content;
+}
+
+.footer{
+  grid-area: footer;
 }
