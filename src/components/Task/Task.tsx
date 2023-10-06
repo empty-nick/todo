@@ -4,7 +4,7 @@ import styles from './task.module.css';
 
 export function Task() {
   return (
-    <>
+    <div>
       <h1>To do list</h1>
       <ul role='list' className={styles.list}>
         <li className={styles.todo}>
@@ -24,6 +24,6 @@ export function Task() {
           </div>
         </li>
       </ul>
-    </>
+    </div>
   );
 }
