@@ -105,3 +105,16 @@
     transform: translate(0);
   }
 }
+.btnHome{
+  padding: 1em;
+  background-color: #217a00;
+  border: none;
+  border-radius: 1em;
+  width: min(20vw, 200px);
+  cursor: pointer;
+  font-weight: 700;
+}
+.btnHome:hover{
+  background-color: #196000;
+
+}
