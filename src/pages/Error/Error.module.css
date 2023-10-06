@@ -4,6 +4,10 @@
   align-items: center;
   gap: 20px;
 }
+.errorImage{
+  height: 100%;
+  aspect-ratio: 4/3;
+}
 
 .errorText {
   color: white;
@@ -12,7 +16,6 @@
 
 .errorBtn,
 .errorBtn::after {
-  color: white;
   padding: 16px 20px;
   font-size: 18px;
   background: linear-gradient(45deg, transparent 5%, #ff013c 5%);
@@ -116,5 +119,4 @@
 }
 .btnHome:hover{
   background-color: #196000;
-
 }
