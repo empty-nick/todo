@@ -1,0 +1,29 @@
+.modal__background {
+  background: rgba(0, 0, 0, 0.81);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /*z-index: 1;*/
+}
+
+.modal__window {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  position: absolute;
+  width: 48%;
+  height: 56%;
+  top: calc(50% - 28%);
+  left: calc(50% - 25%);
+
+  border-radius: 15px;
+  background-color: #688aa5;
+
+  cursor: auto;
+  padding: 40px 20px;
+  font-size: 2rem;
+  color: white;
+}
