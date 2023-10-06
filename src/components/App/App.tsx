@@ -1,14 +1,15 @@
+import { ReactElement } from "react";
 import { useRoutes } from "react-router-dom";
 
-import { routes } from "../../pages/routes.tsx";
-
-import styles from './styles.module.css'
 import { Header } from "../Header/Header.tsx";
+import { routes } from "../../pages/routes.tsx";
 import { Footer } from "../Footer/Footer.tsx";
 
-function App() {
-  const route = useRoutes(routes)
-  console.log(styles.content)
+import styles from './styles.module.css'
+
+function App(): ReactElement {
+  const route = useRoutes(routes);
+
   return (
     <div className={styles.global}>
       <Header style={styles.header} />
