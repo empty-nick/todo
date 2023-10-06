@@ -1,12 +1,13 @@
 .error {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  place-items: center;
+  position: relative;
   gap: 20px;
+  /*background-color: #fff;*/
+  height: 100%;
 }
 .errorImage{
-  height: 100%;
-  aspect-ratio: 4/3;
+  width: 30%;
 }
 
 .errorText {
