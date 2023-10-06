@@ -1,5 +1,19 @@
+h1 {
+  color: white;
+}
+
 .list {
   font-size: 1.5rem;
+  color: white;
+  max-width: 800px;
+}
+
+.todo {
+  list-style: none;
+}
+
+.todo * {
+  margin: 5px;
 }
 
 .btnsGroup {
@@ -16,6 +30,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 4px;
 }
 
 .imgEdit,
@@ -24,13 +39,8 @@
   max-height: 1em;
 }
 
-.todo {
-  list-style: none;
-}
-
 .task {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
   align-items: center;
 }
