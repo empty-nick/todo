@@ -1,9 +1,27 @@
-.header{
+.header {
+  color: white;
   width: 100vw;
   height: 100%;
   border-radius: 0 0 1em 1em;
-  background-color: #8c8b1b;
+  background-color: #6658de;
+  padding: 20px 0;
 
   display: grid;
   place-items: center;
+}
+
+.header_navigation {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  transition: all 0.5s ease-in-out;
+  scale: 100%
+}
+
+.header_navigation a:hover {
+  color: rgb(66, 20, 75);
+  transition: all 0.3s ease-in-out;
+  scale: 120%
 }
