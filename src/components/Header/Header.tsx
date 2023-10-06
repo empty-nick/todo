@@ -1,18 +1,18 @@
-import { Header } from "../../components/Header/Header.tsx";
-import { Modal } from "../../components/Modal/Modal.tsx";
+import styles from './styles.module.css'
 import { useState } from "react";
+import { Modal } from "../Modal/Modal.tsx";
 
-export function Home() {
+export function Header() {
 	const [visible, setVisible] = useState(false)
 	const toggleModal = () => {
 		setVisible(true)
 		console.log(visible)
 	}
 	return (
-		<div>
+		<div className={styles.header}>
+			Header
+			<button onClick={toggleModal}>Open</button>
 			<Modal isVisible={visible} setVisible={setVisible} />
-			<Header />
-			<button onClick={toggleModal}>Toggle</button>
 		</div>
 	)
 }

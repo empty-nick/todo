@@ -1,0 +1,9 @@
+.header{
+  width: 100vw;
+  height: min(10vh, 400px);
+  border-radius: 0 0 1em 1em;
+  background-color: #8c8b1b;
+
+  display: grid;
+  place-items: center;
+}
