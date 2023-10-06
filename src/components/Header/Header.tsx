@@ -14,7 +14,7 @@ export function Header({style}: IHeader) {
     console.log(visible);
   };
   return (
-    <div className={styles.header}>
+    <div className={`${style} ${styles.header}`}>
       <nav className={styles.header_navigation}>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/error">Error</NavLink>
