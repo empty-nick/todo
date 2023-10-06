@@ -3,7 +3,11 @@ import { useState } from "react";
 import { Modal } from "../Modal/Modal.tsx";
 import { NavLink } from "react-router-dom";
 
-export function Header() {
+interface IHeader{
+	style: string;
+}
+
+export function Header({style}: IHeader) {
   const [visible, setVisible] = useState(false);
   const toggleModal = () => {
     setVisible(true);
