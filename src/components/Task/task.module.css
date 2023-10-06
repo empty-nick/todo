@@ -1,0 +1,46 @@
+h1 {
+  color: white;
+}
+
+.list {
+  font-size: 1.5rem;
+  color: white;
+  max-width: 800px;
+}
+
+.todo {
+  list-style: none;
+}
+
+.todo * {
+  margin: 5px;
+}
+
+.btnsGroup {
+  display: flex;
+  flex-direction: row;
+}
+
+.btnDelete,
+.btnEdit {
+  cursor: pointer;
+  border: gray 1px solid;
+  max-width: 2em;
+  max-height: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.imgEdit,
+.imgDelete {
+  max-width: 1em;
+  max-height: 1em;
+}
+
+.task {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
