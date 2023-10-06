@@ -1,0 +1,36 @@
+.list {
+  font-size: 1.5rem;
+}
+
+.btnsGroup {
+  display: flex;
+  flex-direction: row;
+}
+
+.btnDelete,
+.btnEdit {
+  cursor: pointer;
+  border: gray 1px solid;
+  max-width: 2em;
+  max-height: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imgEdit,
+.imgDelete {
+  max-width: 1em;
+  max-height: 1em;
+}
+
+.todo {
+  list-style: none;
+}
+
+.task {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
