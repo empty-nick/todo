@@ -1,18 +1,14 @@
-import React, { ReactElement } from "react";
+import { ReactElement, useState } from "react";
 import styles from './styles.module.css'
 
-interface IModal{
-	isVisible: boolean;
-	setVisible: React.Dispatch<React.SetStateAction<boolean>>;
-}
-export function Modal({isVisible, setVisible}: IModal): ReactElement {
-	const toggleModal = () => {
-	  setVisible(prevState => !prevState)
-	}
+
+export function Modal(): ReactElement {
+	const [modal, setModal] = useState(false)
+
 	return (
 		<>
-			{isVisible && (
-				<div className={styles.modal__background} onClick={toggleModal}>
+			{modal && (
+				<div className={styles.modal__background} onClick={() => setModal(prevState => !prevState)}>
 					<div className={styles.modal__window}>
 						Content
 					</div>

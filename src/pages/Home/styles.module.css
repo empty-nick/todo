@@ -1,0 +1,32 @@
+:root{
+  --paddingStyle: 1em;
+}
+.content{
+  background-color: #772d2d;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-areas:
+      'newTask completed'
+      'console console';
+  grid-template-rows: 10fr 3fr;
+  grid-template-columns: 1fr 1fr;
+}
+.content > div{
+  padding: var(--paddingStyle);
+}
+
+.tasks{
+  grid-area: newTask;
+  background-color: #509b2a;
+}
+.completed{
+  grid-area: completed;
+  background-color: #23647c;
+}
+
+.console{
+  grid-area: console;
+  display: grid;
+  place-items: center;
+}
