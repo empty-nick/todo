@@ -12,6 +12,10 @@ h1 {
   list-style: none;
 }
 
+input[type='checkbox']:checked + label {
+  text-decoration: line-through;
+}
+
 .todo * {
   margin: 5px;
 }
@@ -45,7 +49,7 @@ h1 {
   align-items: center;
 }
 
-.inputMessage{
+.inputMessage {
   color: #ffffff;
   border: none;
   font-family: monospace;
