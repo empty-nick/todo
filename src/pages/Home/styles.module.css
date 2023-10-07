@@ -2,7 +2,6 @@
   --paddingStyle: 1em;
 }
 .content{
-  background-color: #772d2d;
   width: 100%;
   height: 100%;
   display: grid;
@@ -27,6 +26,8 @@
 
 .console{
   grid-area: console;
-  display: grid;
-  place-items: center;
+  background-color: #691a6c;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
 }

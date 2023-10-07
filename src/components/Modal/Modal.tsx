@@ -1,7 +1,6 @@
 import { ReactElement, useState } from "react";
 import styles from './styles.module.css'
 
-
 export function Modal(): ReactElement {
 	const [modal, setModal] = useState(false)
 
