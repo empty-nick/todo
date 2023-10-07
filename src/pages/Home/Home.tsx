@@ -1,19 +1,22 @@
-import { Task } from '../../components/Task/Task';
-import { NewTaskForm } from '../../components/NewTaskForm/NewTaskForm.tsx';
+import { useState } from "react";
 
-import styles from './styles.module.css';
+import { ITask, Task } from '../../components/Task/Task';
+import { NewTaskForm } from '../../components/NewTaskForm/NewTaskForm.tsx';
 import { Console } from '../../components/Console/Console.tsx';
 
+import styles from './styles.module.css';
+
 export function Home() {
+  const [task, setTask] = useState<ITask[]>([])
+  
   return (
     <div className={styles.content}>
       <div className={styles.tasks}>
         <h1>To do list</h1>
-        <NewTaskForm />
-        <Task taskMessage={'Add new column'} />
-        <Task taskMessage={'New message'} />
-        <Task taskMessage={'Ca'} />
-        <Task taskMessage={'Cvfdvfd'} />
+        <NewTaskForm setTask={setTask} />
+        {task.map( (element, index) => (
+          <Task taskMessage={element.taskMessage} isCompleted={element.isCompleted} key={index} />
+        ))}
       </div>
       <div className={styles.completed}>
         {/* TODO Тут будут completed tasks */}

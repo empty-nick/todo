@@ -6,14 +6,12 @@ import { routes } from "../../pages/routes.tsx";
 import { Footer } from "../Footer/Footer.tsx";
 
 import styles from './styles.module.css'
-import { Modal } from "../Modal/Modal.tsx";
 
 function App(): ReactElement {
   const route = useRoutes(routes);
 
   return (
     <div className={styles.global}>
-      <Modal />
       <Header style={styles.header} />
       <div className={styles.content}>
         {route}
