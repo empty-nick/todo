@@ -3,12 +3,13 @@ import React, { useId, useState } from "react";
 import editIcon from '../../assets/edit_icon.png';
 import deleteIcon from '../../assets/delete_icon.png';
 
-import styles from './task.module.css';
+import styles from './styles.module.css';
 
-interface ITask {
+export interface ITask {
   taskMessage: string;
+  isCompleted: boolean
 }
-export function Task({taskMessage = ''}: ITask) {
+export function Task({taskMessage = '', isCompleted}: ITask) {
   const [enableEditLabel, setEnableEditLabel] = useState<boolean>(true)
   const [message, setMessage] = useState<string>(taskMessage)
   /*
@@ -18,6 +19,7 @@ export function Task({taskMessage = ''}: ITask) {
    */
   const id = useId()
 
+  // TODO пофикисить возможность изменить заданьку на пустую строку
   const changeMessage = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMessage(e?.target?.value)
     console.log(message)
@@ -28,7 +30,7 @@ export function Task({taskMessage = ''}: ITask) {
       <ul role='list' className={styles.list}>
         <li className={styles.todo}>
           <div className={styles.task}>
-            <input id={id} type='checkbox' defaultChecked={false} />
+            <input id={id} type='checkbox' defaultChecked={isCompleted} />
             {enableEditLabel ? (
               <label className='todo-label' htmlFor={id}>
                 {message.trim() ?? `Default message`}

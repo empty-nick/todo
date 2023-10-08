@@ -6,11 +6,16 @@
   margin: 0 5px;
 }
 
-input[type='text'] {
+.inputSuccess{
   border: none;
   border-bottom: 2px solid #6658de;
   font-size: 1.2rem;
   background-color: transparent;
   outline: none;
   color: white;
+}
+
+.inputError{
+  border-top: 2px solid #a60f0f;
+  border-bottom: 2px solid #a60f0f;
 }
