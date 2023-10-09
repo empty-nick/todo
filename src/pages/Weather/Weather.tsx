@@ -1,18 +1,10 @@
-import styles from "./Weather.module.css";
+import styles from "./styles.module.css";
 import React, { useState } from "react";
-import WeatherInfo from "./WeatherComponents/WeatherItem/WeatherItem";
-
-interface WeatherDataType {
-  description: string;
-  icon: string;
-  temperature: number;
-  feels_like: number;
-  pressure: number;
-  humidity: number;
-}
+import WeatherInfo from "../../components/WeatherInfo/WeatherInfo.tsx";
+import { WeatherInfoProps } from "../../models/models.ts";
 
 const Weather = () => {
-  const [weatherData, setWeatherData] = useState<WeatherDataType>({
+  const [weatherData, setWeatherData] = useState<WeatherInfoProps>({
     description: "",
     icon: "",
     temperature: 0,

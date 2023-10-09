@@ -1,13 +1,5 @@
 import React, { useEffect, useState } from "react";
-
-interface WeatherInfoProps {
-  description?: string;
-  icon?: string;
-  temperature?: number;
-  pressure?: number;
-  feels_like?: number;
-  humidity?: number;
-}
+import { WeatherInfoProps } from "../../models/models.ts";
 
 const WeatherInfo: React.FC<WeatherInfoProps> = ({
   description,
