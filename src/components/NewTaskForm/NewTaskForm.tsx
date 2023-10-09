@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import styles from './styles.module.css';
-import { ITask } from "../Task/Task.tsx";
+import React, { ReactElement, useEffect, useState } from 'react';
+import { actions } from "../../store/task/task.slice.ts";
+import { useDispatch } from "react-redux";
 
-interface INewTask {
-  setTask: React.Dispatch<React.SetStateAction<ITask[]>>;
-}
-export function NewTaskForm({ setTask }: INewTask) {
+import styles from './styles.module.css';
+
+export function NewTaskForm(): ReactElement {
   const [message, setMessage] = useState<string>('');
   const [isInputValueCorrect, setInputValueCorrect] = useState<boolean>(true)
+  const [id, setId] = useState<number>(0)
+  // TODO ВАЖНО!!! Тут используем dispatch, но возможно иначе (см. другой TODO)
+  const dispatch = useDispatch()
   useEffect(() => {
     if (message.length > 0 && message.trim().length === 0)
       setInputValueCorrect(false)
@@ -26,12 +28,12 @@ export function NewTaskForm({ setTask }: INewTask) {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (message.trim().length > 0 && isInputValueCorrect) {
-      setTask(prevValue => [...prevValue, { taskMessage: message.trim(), isCompleted: false }])
+      setId(prevState => ++prevState)
+      dispatch(actions.addTask({isCompleted: false, taskMessage: message, id: id}))
       setMessage('')
     } else if (!isInputValueCorrect){
       setInputValueCorrect(false)
     }
-    console.log(message);
   }
 
   return (

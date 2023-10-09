@@ -1,21 +1,26 @@
-import { useState } from "react";
+import { useAppSelector } from "../../hooks/useAppSelector.ts";
 
-import { ITask, Task } from '../../components/Task/Task';
+import { Task } from '../../components/Task/Task';
 import { NewTaskForm } from '../../components/NewTaskForm/NewTaskForm.tsx';
 import { Console } from '../../components/Console/Console.tsx';
 
 import styles from './styles.module.css';
 
 export function Home() {
-  const [task, setTask] = useState<ITask[]>([])
-  
+  const { tasks } = useAppSelector( state => state.task )
+
   return (
     <div className={styles.content}>
       <div className={styles.tasks}>
         <h1>To do list</h1>
-        <NewTaskForm setTask={setTask} />
-        {task.map( (element, index) => (
-          <Task taskMessage={element.taskMessage} isCompleted={element.isCompleted} key={index} />
+        <NewTaskForm />
+        {tasks.length !== 0 && tasks.map( task => (
+          <Task
+            id={task.id}
+            taskMessage={task.taskMessage}
+            isCompleted={task.isCompleted}
+            key={task.id}
+          />
         ))}
       </div>
       <div className={styles.completed}>
