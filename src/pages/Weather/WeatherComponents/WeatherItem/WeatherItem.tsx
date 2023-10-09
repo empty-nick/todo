@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 interface WeatherInfoProps {
   description?: string;
@@ -24,13 +24,13 @@ const WeatherInfo: React.FC<WeatherInfoProps> = ({
       fetchIcon(icon);
     }
   }, [icon]);
-  useRef(() => {});
-  function hPaToMM(value: number): number {
-    return Math.floor(value / 1.333);
+
+  function hPaToMM(value?: number): number {
+    return value ? Math.floor(value / 1.333) : 0;
   }
 
-  function ucFirst(str: string) {
-    if (!str) return str;
+  function ucFirst(str?: string) {
+    if (!str) return "";
     return str[0].toUpperCase() + str.slice(1);
   }
 
@@ -39,11 +39,10 @@ const WeatherInfo: React.FC<WeatherInfoProps> = ({
       .then((response) => {
         if (response.ok) {
           setIconUrl(response.url);
-          console.log(iconUrl);
         }
       })
       .catch((error) => {
-        console.log("Error fetching icon:", error);
+        console.log("Error fetching icon:", error.message);
       });
   }
 

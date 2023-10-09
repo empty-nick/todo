@@ -2,35 +2,37 @@ import styles from "./Weather.module.css";
 import React, { useState } from "react";
 import WeatherInfo from "./WeatherComponents/WeatherItem/WeatherItem";
 
+interface WeatherDataType {
+  description: string;
+  icon: string;
+  temperature: number;
+  feels_like: number;
+  pressure: number;
+  humidity: number;
+}
+
 const Weather = () => {
-  const [cityName, setCityName] = useState<string>("");
-  const [weatherData, setWeatherData] = useState<{
-    description: string | null;
-    icon: string | null;
-    temperature: number | null;
-    feels_like: number | null;
-    pressure: number | null;
-    humidity: number | null;
-  }>({
-    description: null,
-    icon: null,
-    temperature: null,
-    feels_like: null,
-    pressure: null,
-    humidity: null,
+  const [weatherData, setWeatherData] = useState<WeatherDataType>({
+    description: "",
+    icon: "",
+    temperature: 0,
+    feels_like: 0,
+    pressure: 0,
+    humidity: 0,
   });
-  const [error, setError] = useState<string | null>(null);
+  const [cityName, setCityName] = useState("");
+  const [error, setError] = useState("");
   const [isDataReceived, setIsDataReceived] = useState(false);
 
   function fetchWeather(cityName: string) {
     if (cityName.trim() === "") {
       setWeatherData({
-        description: null,
-        icon: null,
-        temperature: null,
-        feels_like: null,
-        pressure: null,
-        humidity: null,
+        description: "",
+        icon: "",
+        temperature: 0,
+        feels_like: 0,
+        pressure: 0,
+        humidity: 0,
       });
       return;
     }
@@ -48,12 +50,12 @@ const Weather = () => {
         setWeatherData({
           description: data.weather[0].description,
           icon: data.weather[0].icon,
-          temperature: toFloor(data.main.temp),
-          feels_like: toFloor(data.main.feels_like),
-          pressure: toFloor(data.main.pressure),
-          humidity: toFloor(data.main.humidity),
+          temperature: Math.floor(data.main.temp),
+          feels_like: Math.floor(data.main.feels_like),
+          pressure: Math.floor(data.main.pressure),
+          humidity: Math.floor(data.main.humidity),
         });
-        setError(null);
+        setError("");
         clearInput();
         setIsDataReceived(true);
       })
@@ -61,12 +63,12 @@ const Weather = () => {
         console.error(error);
         clearInput();
         setWeatherData({
-          description: null,
-          icon: null,
-          temperature: null,
-          feels_like: null,
-          pressure: null,
-          humidity: null,
+          description: "",
+          icon: "",
+          temperature: 0,
+          feels_like: 0,
+          pressure: 0,
+          humidity: 0,
         });
         setError("Ошибка получения данных о погоде");
         setIsDataReceived(false);
@@ -81,10 +83,11 @@ const Weather = () => {
     setCityName(event.target.value);
   }
 
-  function toFloor(value: number | null): number | null {
-    return value !== null ? Math.floor(value) : null;
+  function handleInputKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
+    if (event.key === "Enter") {
+      fetchWeather(cityName);
+    }
   }
-
   return (
     <div className={styles.weather}>
       <h4 className={styles.weather_title}>Weather</h4>
@@ -94,6 +97,7 @@ const Weather = () => {
           name="text"
           className={styles.weather_input}
           onInput={handleInputChange}
+          onKeyDown={handleInputKeyDown}
           value={cityName}
         />
         <label className={styles.weather_inputLabel}>Введите город</label>
